@@ -1,0 +1,95 @@
+<!-- <div style="display:flex;flex-direction: column;">
+  <div style="display:flex;flex-direction:row;">
+    <div *ngFor="let lang of dict">
+      <button class="btn" (click)="setLang(lang.name);">
+        {{ lang.name | uppercase }}
+      </button>
+      <button class="btn btn-warning" (click)="removeLang(lang.name)">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <button class="btn btn-warning" (click)="addDialogOpened = true;">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+
+  <button class="btn btn-warning" (click)="reverseTrsl()" *ngIf="currLangData">
+    <i class="fas fa-sync-alt"></i>
+  </button> -->
+<!-- 
+  <div *ngIf="currLangData" style="display:flex;flex-direction:row;">
+    <div style="display:flex;flex-direction:column;">
+      <div *ngFor="let translation of currLangData">
+        <div style="display:flex;flex-direction:row;">
+          <h1>{{ translation.w1 }} — {{ translation.w2 }}</h1>
+          <button class="btn btn-warning" (click)="removeTrsl(translation)">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction:column;">
+      <input #w1 kendoTextBox type="text" />
+      <input #w2 kendoTextBox type="text" />
+      <button class="btn btn-warning" (click)="addTrsl(w1.value, w2.value)">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </div> -->
+<!-- <clr-tabs>
+  <clr-tab *ngFor="let lang of dict; let i = index">
+    <button [routerLink]="['/dictionary', lang._id]" clrTabLink id="link {{ i }}">
+      {{ lang.language | uppercase }}
+      <a class="btn btn-warning tab-btn" (click)="removeLang(lang._id)">
+        <i class="fas fa-times"></i>
+      </a>
+      <a class="btn btn-warning tab-btn" (click)="updateDialogOpen(lang);">
+        <i class="fas fa-pencil-alt"></i>
+      </a>
+    </button>
+  </clr-tab>
+  <clr-tab>
+    <button clrTabLink id="link11">
+      <a class="btn btn-warning tab-btn" (click)="addDialogOpen();">
+        <i class="fas fa-plus"></i>
+      </a>
+    </button>
+  </clr-tab>
+</clr-tabs> -->
+<div class="clr-row">
+  <div class="clr-col-lg-4 clr-col-md-6 clr-col-sm-12 clr-col-xs-12" *ngFor="let dict of dictionary$">
+    <div class="card clickable">
+      <div class="card-content" [routerLink]="['/dictionary', dict._id]">
+        <!-- <div class="card-header">
+
+      </div> -->
+        <div class="card-img">
+          <img src="https://via.placeholder.com/200x200.png">
+          <!-- <img src="https://via.placeholder.com/200x200.png"> -->
+        </div>
+        <div class="card-block">
+          <div class="card-title">
+            {{ dict.language | uppercase }}
+          </div>
+          <div class="card-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non cupiditate a labore officia doloremque odio.
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="btn-group btn-primary">
+          <button class="btn btn-danger" (click)="removeLang(dict._id)">Remove</button>
+          <button class="btn" (click)="updateDialogOpen(dict);">Update</button>
+          <button class="btn btn-success" [routerLink]="['/dictionary', dict._id]">Open</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" (click)="addDialogOpen();" class="btn btn-icon btn-float btn-lg btn-warning">
+  <clr-icon shape="plus"></clr-icon>
+</button>
+<add-lang-dialog (newLang)=addLang($event);></add-lang-dialog>
+<update-lang-dialog (updateLang)=updateLang($event)></update-lang-dialog>
+
+<app-alerts></app-alerts>

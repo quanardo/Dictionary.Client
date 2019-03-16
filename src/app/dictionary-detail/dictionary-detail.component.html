@@ -1,0 +1,35 @@
+<!-- <app-dictionary></app-dictionary> -->
+<table class="table" *ngIf="dictionary?.length > 0">
+  <thead>
+    <tr>
+      <th>First Language</th>
+      <th>Second Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let translation of dictionary">
+      <td>{{ reversed === true ? translation.to : translation.from }}</td>
+      <td>
+        {{ reversed === true ? translation.from : translation.to }}
+        <div class="actions">
+          <button class="btn btn-link table-btn" (click)="openUpdateModal(translation);">
+            <clr-icon shape="pencil" class="is-solid"></clr-icon>
+          </button>
+          <button class="btn btn-link table-btn" (click)="removeTrsl(translation._id);">
+            <clr-icon shape="trash" class="is-solid"></clr-icon>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-warning table-btn" style="margin: 24px;" (click)="reverseTrsl();">
+  <i class="fas fa-exchange-alt"></i>
+</button>
+<button type="button" (click)="openAddModal();" class="btn btn-icon btn-float btn-lg btn-warning">
+  <clr-icon shape="plus"></clr-icon>
+</button>
+<app-game [translations]=translations></app-game>
+<app-alerts></app-alerts>
+<app-update-translation-modal (updatedTrsl)=updateTrsl($event)></app-update-translation-modal>
+<app-add-translation-modal (newTrsl)=addTrsl($event)></app-add-translation-modal>

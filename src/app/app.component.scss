@@ -1,0 +1,46 @@
+.sidenav-card { 
+    margin-bottom: 1rem;
+    width: 90%;
+    align-self: center;
+}
+
+.logo {
+    height: 100%;
+}
+
+.user-info-card {
+
+    img {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .user-data {
+        justify-content: center;
+
+        .user-position {
+            font-size: 0.5rem;
+        }
+}
+
+
+}
+.right-sidenav {
+    position: fixed;
+    right: 0;
+    height: 100%;
+}
+.sidenav-trigger {
+    // background-color: transparent !important;
+    // border: none !important;
+    cursor: pointer;
+}
+
+.nav-link:focus, .nav-link:active {
+    outline: none !important;
+}
+
+.main-container:not([class*=open-overflow-menu]):not([class*=open-hamburger-menu]) .clr-vertical-nav.is-collapsed {
+    width: 0 !important;
+    min-width: 0 !important;
+}

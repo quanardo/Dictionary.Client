@@ -1,0 +1,38 @@
+<clr-modal [(clrModalOpen)]="opened">
+  <h3 class="modal-title">I have a nice title</h3>
+  <div class="modal-body">
+    <div style="display:flex;flex-direction:row;">
+      <form action="">
+        <section class="form-block">
+          <label>Select Boxes</label>
+          <div class="form-group">
+            <label for="selects_1">First Lang</label>
+            <div class="select">
+              <select #selects1 id="selects_1">
+                <option *ngFor="let lang of languages" value="{{ lang.value }}">{{ lang.name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="selects_2">Second Lang</label>
+            <div class="select">
+              <select #selects2 id="selects_2">
+                <option *ngFor="let lang of languages" value="{{ lang.value }}">{{ lang.name }}</option>
+              </select>
+            </div>
+          </div>
+        </section>
+      </form>
+      <!-- <div style="display:flex;flex-direction:column;align-self:center;">
+        <button class="btn btn-warning" (click)="">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div> -->
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit(selects1.value, selects2.value)">Ok</button>
+  </div>
+</clr-modal>
+<app-alerts></app-alerts>

@@ -1,0 +1,88 @@
+<app-loader></app-loader>
+<div class="main-container">
+    <header class="header-6">
+        <div class="branding">
+            <a href="..." class="nav-link">
+                <!-- <clr-icon shape="vm-bug"></clr-icon> -->
+                <img src="../assets/img/vocky.svg" alt="logotype" class="logo">
+                <span class="title">Vocky</span>
+            </a>
+        </div>
+        <div class="header-nav">
+            <a routerLink="" class="nav-link nav-text">Home</a>
+            <a routerLink="" class="nav-link nav-text">Documentation</a>
+            <a routerLink="/read" class="nav-link nav-text">Statistics</a>
+            <a routerLink="/dictionary" class="active nav-link nav-text">Dictionaries</a>
+        </div>
+        <div class="header-actions">
+            <a class="sidenav-trigger nav-link nav-icon" [class.active]="!collapsed" (click)="expand()">
+                <clr-icon shape="user"></clr-icon>
+            </a>
+        </div>
+    </header>
+    <div class="content-container">
+        <div class="content-area">
+            <router-outlet></router-outlet>
+        </div>
+        <clr-vertical-nav class="left-sidenav">
+            <div class="card sidenav-card">
+                <div class="card-block">
+                    <div class="card-title">
+                        Statistics
+                    </div>
+                    <div class="card-text">
+                        ...
+                    </div>
+                </div>
+            </div>
+            <clr-vertical-nav-group routerLinkActive="active">
+                <clr-icon shape="book" clrVerticalNavIcon></clr-icon>
+                Dictionaries list
+                <clr-vertical-nav-group-children>
+                    <a clrVerticalNavLink routerLink="" routerLinkActive="active">
+                        Russian - English
+                    </a>
+                    <a clrVerticalNavLink routerLink="" routerLinkActive="active">
+                        Spanish - Polish
+                    </a>
+                </clr-vertical-nav-group-children>
+            </clr-vertical-nav-group>
+            <a clrVerticalNavLink routerLink="./pikachu" routerLinkActive="active">Social Should be Here</a>
+            <a clrVerticalNavLink routerLink="./raichu" routerLinkActive="active">Raichu</a>
+            <a clrVerticalNavLink routerLink="./snorlax" routerLinkActive="active">Snorlax</a>
+            <a clrVerticalNavLink routerLink="/credit" routerLinkActive="active">Credit</a>
+        </clr-vertical-nav>
+        <clr-vertical-nav [clrVerticalNavCollapsible]="true" [clrVerticalNavCollapsed]="collapsed"
+            class="right-sidenav">
+            <div class="card sidenav-card user-info-card">
+                <div class="card-media-block ">
+                    <img src="https://via.placeholder.com/50x50.png" class="card-media-image user-avatar">
+                    <div class="card-media-description user-data">
+                        <span class="card-media-title">
+                            John Doe
+                        </span>
+                        <span class="card-media-text user-position">
+                            Student
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <a clrVerticalNavLink routerLink="./pikachu" routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="cog"></clr-icon>
+                Settings
+            </a>
+            <a clrVerticalNavLink routerLink="./raichu" routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="tasks"></clr-icon>
+                Subscription
+            </a>
+            <a clrVerticalNavLink routerLink="./snorlax" routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="share"></clr-icon>
+                Social
+            </a>
+            <a clrVerticalNavLink routerLink="/credit" routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="times"></clr-icon>
+                Exit
+            </a>
+        </clr-vertical-nav>
+    </div>
+</div>
